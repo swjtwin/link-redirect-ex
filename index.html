@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>앱 열기</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-  </style>
-</head>
-<body>
-  <h2>나는 밍쿤!!!!...뀨</h2>
-  <script>
-    const ua = navigator.userAgent || navigator.vendor;
-    if (/android/i.test(ua)) {
-      window.location = "intent://welcome#Intent;scheme=myapp;package=com.jnj.strawberrycam;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.jnj.strawberrycam;end";
-    } else if (/iPhone|iPad|iPod/.test(ua)) {
-      window.location = "myapp://welcome";
-      setTimeout(() => {
-        window.location = "https://apps.apple.com/app/6739798168";
-      }, 1500);
-    } else {
-      window.location = "https://yourwebsite.com";
-    }
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>앱 열기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>앱 실행중입니다... 잠시만 기다려주세요</h2>
+    <script>
+      const ua = navigator.userAgent || navigator.vendor;
+
+      function openAndroidApp() {
+        // Android 6~11 이상에서도 작동하도록 수정
+        const intentUri =
+          "intent://welcome#Intent;scheme=myapp;package=com.jnj.strawberrycam;end";
+        const fallbackUrl =
+          "https://play.google.com/store/apps/details?id=com.jnj.strawberrycam";
+
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.src = "myapp://welcome";
+        document.body.appendChild(iframe);
+
+        setTimeout(() => {
+          window.location = fallbackUrl;
+        }, 1500);
+      }
+
+      if (/android/i.test(ua)) {
+        openAndroidApp();
+      } else if (/iPhone|iPad|iPod/.test(ua)) {
+        window.location = "myapp://welcome";
+        setTimeout(() => {
+          window.location = "https://apps.apple.com/app/id6739798168";
+        }, 1500);
+      } else {
+        window.location = "https://naver.com";
+      }
+    </script>
+  </body>
 </html>
