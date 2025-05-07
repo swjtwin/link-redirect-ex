@@ -4,8 +4,7 @@ name: Deploy index.html to GitHub Pages
 on:
   push:
     branches: ["main"]  # main 브랜치에 push될 때만 실행
-    paths:
-      - 'index.html'     # index.html 변경이 포함되어야 실행됨
+    
   workflow_dispatch:      # 수동 실행도 가능
 
 permissions:
