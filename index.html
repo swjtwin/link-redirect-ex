@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>앱 실행 중...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { text-align: center; margin-top: 40px; font-family: sans-serif; }
-  </style>
-</head>
-<body>
-  <h2>앱을 여는 중입니다...Please Wait</h2>
-  <script>
-    const ua = navigator.userAgent || navigator.vendor;
-    const deepLinkPath = "/attendance"; // 딥링크 대상 경로
+  <head>
+    <meta charset="UTF-8" />
+    <title>앱 실행 중...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        text-align: center;
+        margin-top: 40px;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>잠시 기다리시면 앱이 실행됩니다.</h2>
+    <script>
+      const ua = navigator.userAgent || navigator.vendor;
+      const deepLinkPath = "attendance"; // 딥링크 대상 경로
 
-    if (/android/i.test(ua)) {
-      // Android: iframe 사용 후 fallback
-      const iframe = document.createElement("iframe");
-      iframe.style.display = "none";
-      iframe.src = `myapp://${deepLinkPath}`;
-      document.body.appendChild(iframe);
-
-      setTimeout(() => {
-        window.location = "https://play.google.com/store/apps/details?id=com.jnj.strawberrycam";
-      }, 1500);
-
-    } else if (/iPhone|iPad|iPod/.test(ua)) {
-      // iOS: 딥링크 후 fallback
-      window.location = `myapp://${deepLinkPath}`;
-      setTimeout(() => {
-        window.location = "https://apps.apple.com/app/id6739798168";
-      }, 1500);
-
-    } else {
-      // 기타 기기 (PC 등)
-      window.location = "https://yourwebsite.com";
-    }
-  </script>
-</body>
+      if (/android/i.test(ua)) {
+        window.location = `myapp://${deepLinkPath}`;
+        setTimeout(() => {
+          window.location =
+            "https://play.google.com/store/apps/details?id=com.jnj.strawberrycam";
+        }, 1500);
+      } else if (/iPhone|iPad|iPod/.test(ua)) {
+        // iOS: 딥링크 후 fallback
+        window.location = `myapp://${deepLinkPath}`;
+        setTimeout(() => {
+          window.location = "https://apps.apple.com/app/id6739798168";
+        }, 1500);
+      } else {
+        // 기타 기기 (PC 등)
+        window.location = "https://yourwebsite.com";
+      }
+    </script>
+  </body>
 </html>
