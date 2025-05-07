@@ -16,7 +16,7 @@
     <h2>잠시 기다리시면 앱이 실행됩니다.</h2>
     <script>
       const ua = navigator.userAgent || navigator.vendor;
-      const deepLinkPath = "main/attendance"; // 딥링크 대상 경로
+      const deepLinkPath = "attendance"; // 딥링크 대상 경로
 
       if (/android/i.test(ua)) {
         window.location = `onlyu://${deepLinkPath}`;
