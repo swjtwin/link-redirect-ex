@@ -19,16 +19,16 @@
       const deepLinkPath = ""; // 딥링크 대상 경로
 
       if (/android/i.test(ua)) {
-        window.location = `onlyu://${deepLinkPath}`;
+        window.location = `lovetour://${deepLinkPath}`;
         setTimeout(() => {
           window.location =
-            "https://play.google.com/store/apps/details?id=com.jnj.strawberrycam";
+            "https://play.google.com/store/apps/details?id=dev.happycam.clover";
         }, 1500);
       } else if (/iPhone|iPad|iPod/.test(ua)) {
         // iOS: 딥링크 후 fallback
-        window.location = `onlyu://${deepLinkPath}`;
+        window.location = `lovetour://${deepLinkPath}`;
         setTimeout(() => {
-          window.location = "https://apps.apple.com/app/id6739798168";
+          window.location = "https://apps.apple.com/app/id6738633086";
         }, 1500);
       } else {
         // 기타 기기 (PC 등)

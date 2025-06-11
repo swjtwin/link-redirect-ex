@@ -3,9 +3,9 @@
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target": {
         "namespace": "android_app",
-        "package_name": "com.jnj.strawberrycam",
+        "package_name": "dev.happycam.clover",
         "sha256_cert_fingerprints":
-          ["C6:BA:8D:55:5F:57:73:CC:E7:A0:08:C2:1C:48:F4:41:23:0D:B0:BF:2E:4C:48:FC:33:FF:7D:A2:1D:B8:12:CD"]
+          ["26:12:A4:D0:83:DE:16:E1:91:D9:97:80:6F:D7:CF:CD:20:E1:93:49:A3:24:CC:1C:72:CD:B8:1A:4B:7E:85:15"]
       }
     }
   ]

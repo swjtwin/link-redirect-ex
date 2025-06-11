@@ -22,13 +22,13 @@
         window.location = `scheme://${deepLinkPath}`;
         setTimeout(() => {
           window.location =
-            "[구글플레이 스토어 주소]";
+          "https://play.google.com/store/apps/details?id=dev.happycam.clover";
         }, 1500);
       } else if (/iPhone|iPad|iPod/.test(ua)) {
         // iOS: 딥링크 후 fallback
         window.location = `scheme://${deepLinkPath}`;
         setTimeout(() => {
-          window.location = "[앱스토어 스토어 주소]]";
+            window.location = "https://apps.apple.com/app/id6738633086";
         }, 1500);
       } else {
         // 기타 기기 (PC 등)
