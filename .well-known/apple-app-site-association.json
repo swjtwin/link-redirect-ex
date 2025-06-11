@@ -1,0 +1,11 @@
+{
+  "applinks": {
+      "apps": [],
+      "details": [
+      {
+        "appID": "66TPYQ574V.dev.happycam.clover",
+        "paths": ["*"]
+      }
+    ]
+  }
+}
