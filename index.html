@@ -24,21 +24,33 @@
         );
       }
 
+      function openAppOrStore(appUrl, storeUrl) {
+        const start = Date.now();
+
+        // 딥링크 호출
+        window.location = appUrl;
+
+        // 2.5초 후 fallback (사용자가 앱을 열었으면 이 로직은 무시됨)
+        setTimeout(() => {
+          const end = Date.now();
+          if (end - start < 2500) {
+            // 앱이 열리지 않은 경우 fallback
+            window.location = storeUrl;
+          }
+        }, 2500);
+      }
+
       if (/android/i.test(navigator.userAgent)) {
-        // Android
-        window.location = `lovetour://${deepLinkPath}`;
-        setTimeout(() => {
-          window.location =
-            "https://play.google.com/store/apps/details?id=dev.happycam.clover";
-        }, 1500);
+        openAppOrStore(
+          `lovetour://${deepLinkPath}`,
+          "https://play.google.com/store/apps/details?id=dev.happycam.clover"
+        );
       } else if (isIOS()) {
-        // iOS
-        window.location = `lovetour://${deepLinkPath}`;
-        setTimeout(() => {
-          window.location = "https://apps.apple.com/app/id6738633086";
-        }, 1500);
+        openAppOrStore(
+          `lovetour://${deepLinkPath}`,
+          "https://apps.apple.com/app/id6738633086"
+        );
       } else {
-        // 기타 기기 (PC 등)
         window.location = "https://www.naver.com";
       }
     </script>
