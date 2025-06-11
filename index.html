@@ -15,17 +15,24 @@
   <body>
     <h2>잠시 기다리시면 앱이 실행됩니다.</h2>
     <script>
-      const ua = navigator.userAgent || navigator.vendor;
       const deepLinkPath = ""; // 딥링크 대상 경로
 
-      if (/android/i.test(ua)) {
+      function isIOS() {
+        return (
+          /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+        );
+      }
+
+      if (/android/i.test(navigator.userAgent)) {
+        // Android
         window.location = `lovetour://${deepLinkPath}`;
         setTimeout(() => {
           window.location =
             "https://play.google.com/store/apps/details?id=dev.happycam.clover";
         }, 1500);
-      } else if (/iPhone|iPad|iPod/.test(ua)) {
-        // iOS: 딥링크 후 fallback
+      } else if (isIOS()) {
+        // iOS
         window.location = `lovetour://${deepLinkPath}`;
         setTimeout(() => {
           window.location = "https://apps.apple.com/app/id6738633086";
