@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <title>앱 실행 중...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body { text-align: center; margin-top: 40px; font-family: sans-serif; }
-  </style>
-</head>
-<body>
-  <h2>잠시 기다리시면 앱이 실행됩니다.</h2>
-  <script>
-    const deepLinkPath = ""; // 예시 경로
+  <head>
+    <meta charset="UTF-8" />
+    <title>잠시만 기다려주세요...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        text-align: center;
+        margin-top: 40px;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>러브투어에 오신걸 환영합니다.</h2>
+    <script>
+      const ua = navigator.userAgent || navigator.vendor;
+      const deepLinkPath = "attendance"; // 딥링크 대상 경로
 
-    // 유니버설 링크 (웹 URL)
-    const universalLink = `https://swjtwin.github.io/${deepLinkPath}`;
-
-    // 앱 딥링크
-    const customSchemeLink = `lovetour://${deepLinkPath}`;
-
-    // 마켓 링크
-    const storeUrl = /android/i.test(navigator.userAgent)
-      ? "https://play.google.com/store/apps/details?id=dev.happycam.clover"
-      : "https://apps.apple.com/app/id6738633086";
-
-    // 우선 유니버설 링크 시도
-    window.location = universalLink;
-
-    // 일정 시간 후 fallback으로 딥링크 시도
-    setTimeout(() => {
-      window.location = customSchemeLink;
-
-      // 딥링크도 실패했을 경우 최종 스토어 fallback
-      setTimeout(() => {
-        window.location = storeUrl;
-      }, 1500);
-    }, 1500);
-  </script>
-</body>
+      if (/android/i.test(ua)) {
+        window.location = `scheme://${deepLinkPath}`;
+        setTimeout(() => {
+          window.location =
+            "[구글플레이 스토어 주소]";
+        }, 1500);
+      } else if (/iPhone|iPad|iPod/.test(ua)) {
+        // iOS: 딥링크 후 fallback
+        window.location = `scheme://${deepLinkPath}`;
+        setTimeout(() => {
+          window.location = "[앱스토어 스토어 주소]]";
+        }, 1500);
+      } else {
+        // 기타 기기 (PC 등)
+        window.location = "https://www.naver.com";
+      }
+    </script>
+  </body>
 </html>
