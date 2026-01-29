@@ -23,6 +23,8 @@
       const search = window.location.search;
     //   const hash = window.location.hash;
 
+    console.log("!!! search:", search);
+
       // 딥링크 구성: path와 query, fragment를 모두 포함하도록 수정
       // fantastic-fu://app/attendance?query#fragment 형식이 되어 path에 /attendance가 들어갑니다.
       const deepLink = `fantastic-fu://app/${deepLinkPath}${search}`;
