@@ -16,17 +16,24 @@
     <h2>팬타스틱으로 넘어가는 중이에요 출석화면 갑니다</h2>
     <script>
       const ua = navigator.userAgent || navigator.vendor;
-      const deepLinkPath = "attendance"; // 딥링크 대상 경로
+      
+      // 요청하신 값들로 설정
+      const deepLinkPath = "rose"; 
+      const search = "?abc=test";
+      const hash = "#안뇽";
+
+      // 딥링크 구성: fantastic-fu://app/rose?abc=test#안뇽
+      const deepLink = `fantastic-fu://app/${deepLinkPath}${search}${hash}`;
 
       if (/android/i.test(ua)) {
-        window.location = `fantastic-fu://${deepLinkPath}`;
+        window.location = deepLink;
         setTimeout(() => {
           window.location =
           "https://play.google.com/store/apps/details?id=com.KaliPeach.Fanbora";
         }, 1500);
       } else if (/iPhone|iPad|iPod/.test(ua)) {
         // iOS: 딥링크 후 fallback
-        window.location = `fantastic-fu://${deepLinkPath}`;
+        window.location = deepLink;
         setTimeout(() => {
           window.location = "https://apps.apple.com/app/id6467175837";
         }, 1500);

@@ -1,0 +1,42 @@
+<!-- <!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>팬타스틱으로 넘어가는 중이에요</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        text-align: center;
+        margin-top: 40px;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>팬타스틱으로 넘어가는 중이에요 사용법 화면 갑니다</h2>
+    <script>
+      const ua = navigator.userAgent || navigator.vendor;
+      const deepLinkPath = "usage"; // 딥링크 대상 경로
+      
+      const search = window.location.search;
+      const hash = window.location.hash;
+
+      const deepLink = `fantastic-fu://app/${deepLinkPath}${search}${hash}`;
+
+      if (/android/i.test(ua)) {
+        window.location = deepLink;
+        setTimeout(() => {
+          window.location =
+          "https://play.google.com/store/apps/details?id=com.KaliPeach.Fanbora";
+        }, 1500);
+      } else if (/iPhone|iPad|iPod/.test(ua)) {
+        window.location = deepLink;
+        setTimeout(() => {
+          window.location = "https://apps.apple.com/app/id6467175837";
+        }, 1500);
+      } else {
+        window.location = "https://www.celeclab.com/";
+      }
+    </script>
+  </body>
+</html> -->
