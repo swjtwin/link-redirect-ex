@@ -1,11 +1,11 @@
 [
-    {
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "dev.happycam.clover",
-        "sha256_cert_fingerprints":
-          ["26:12:A4:D0:83:DE:16:E1:91:D9:97:80:6F:D7:CF:CD:20:E1:93:49:A3:24:CC:1C:72:CD:B8:1A:4B:7E:85:15"]
-      }
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.KaliPeach.Fanbora",
+      "sha256_cert_fingerprints":
+        ["13:55:C6:6A:59:70:EB:2D:48:7A:5F:0D:C8:C9:48:CC:FF:7E:52:BF:4A:A7:BA:E1:D2:3D:F8:08:76:46:60:4B"]
     }
-  ]
+  }
+]
