@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>팬타스틱으로 넘어가는 중이에요</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        text-align: center;
+        margin-top: 40px;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>팬타스틱으로 넘어가는 중이에요 추천인 적읍시다</h2>
+    <script>
+      const ua = navigator.userAgent || navigator.vendor;
+      const deepLinkPath = ""; // 딥링크 대상 경로 -> host가 됨.
+      
+      // 현재 URL의 쿼리 파라미터와 해시값을 가져옵니다.
+
+      const search = window.location.search;
+    //   const hash = window.location.hash;
+
+      // 딥링크 구성: path와 query, fragment를 모두 포함하도록 수정
+      // fantastic-fu://app/attendance?query#fragment 형식이 되어 path에 /attendance가 들어갑니다.
+      const deepLink = `fantastic-fu://app/${deepLinkPath}${search}`;
+
+      if (/android/i.test(ua)) {
+        window.location = deepLink;
+        setTimeout(() => {
+          window.location =
+          "https://play.google.com/store/apps/details?id=com.KaliPeach.Fanbora";
+        }, 1500);
+      } else if (/iPhone|iPad|iPod/.test(ua)) {
+        // iOS: 딥링크 후 fallback
+        window.location = deepLink;
+        setTimeout(() => {
+          window.location = "https://apps.apple.com/app/id6467175837";
+        }, 1500);
+      } else {
+        // 기타 기기 (PC 등)
+        window.location = "https://www.celeclab.com/";
+      }
+    </script>
+  </body>
+</html>
